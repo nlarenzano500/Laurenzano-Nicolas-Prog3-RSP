@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "10d4346d-3999-49a7-b910-cbdf65303e7d",
+		"name": "Rec 2do Parcial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5583991"
+	},
+	"item": [
+		{
+			"name": "Verificar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuario\": \"user01\",\n    \"clave\": \"1234\",\n    \"tipo\": \"admin\"\n}"
+				},
+				"url": {
+					"raw": "{{url_WS}}/app/verificarUsuario",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"verificarUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuario\": \"user01\",\n    \"clave\": \"1234\",\n    \"tipo\": \"admin\"\n}"
+				},
+				"url": {
+					"raw": "{{url_WS}}/app/crearToken",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"crearToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cripto: Alta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzAzNjQ1MDYsImV4cCI6MTY3MDM2ODEwNiwiYXVkIjoiNzc2NzFiNzMxY2EyYzRmYTVmMTlhZDE0NWMyMWFmNjRmNjUyYjE3YyIsImRhdGEiOnsidXN1YXJpbyI6InVzZXIwMSIsImNsYXZlIjoiMTIzNCIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJSZWN1IDJkbyBQYXJjaWFsIn0.AsBdZu6aeri9zeHHog9lZgZZUzaTRvjkmPd4xsZnX00",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "precio",
+							"value": "50000",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "eterium",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/home/nlaurenzano/Imágenes/keyboardcat.gif"
+						},
+						{
+							"key": "nacionalidad",
+							"value": "alemana",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_WS}}/app/criptos",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"criptos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criptos: Traer todos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_WS}}/app/criptos",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"criptos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criptos: Traer por Nacionalidad",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_WS}}/app/criptos/filtro/alemana",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"criptos",
+						"filtro",
+						"alemana"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criptos: Traer por Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_WS}}/app/criptos/1",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"criptos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Venta: Alta",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NzAzNjU2ODksImV4cCI6MTY3MDM2OTI4OSwiYXVkIjoiNzc2NzFiNzMxY2EyYzRmYTVmMTlhZDE0NWMyMWFmNjRmNjUyYjE3YyIsImRhdGEiOnsidXN1YXJpbyI6InVzZXIwMSIsImNsYXZlIjoiMTIzNCIsInRpcG8iOiJhZG1pbiJ9LCJhcHAiOiJSZWN1IDJkbyBQYXJjaWFsIn0.mqTBCKEkIk206mUDhFDdKIAtgw2Yp824RNQPcys5SQY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombreCripto",
+							"value": "eterium",
+							"type": "text"
+						},
+						{
+							"key": "usuario",
+							"value": "user02",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "200000",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/home/nlaurenzano/Imágenes/keyboardcat.gif"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url_WS}}/app/ventas",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"ventas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ventas: Traer todos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_WS}}/app/ventas",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"ventas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ventas: Traer por Nacionalidad y Fecha",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url_WS}}/app/ventas/filtro/nacionalidad?nacionalidad=alemana&inicio=2022-06-10&fin=2022-12-13",
+					"host": [
+						"{{url_WS}}"
+					],
+					"path": [
+						"app",
+						"ventas",
+						"filtro",
+						"nacionalidad"
+					],
+					"query": [
+						{
+							"key": "nacionalidad",
+							"value": "alemana"
+						},
+						{
+							"key": "inicio",
+							"value": "2022-06-10"
+						},
+						{
+							"key": "fin",
+							"value": "2022-12-13"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
